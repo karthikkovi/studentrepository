@@ -5,8 +5,8 @@ class Header extends Component {
 		return (
 			<nav>
 				<div className='nav-wrapper'>
-					<a href='#' className='brand-logo'>
-						School Logo
+					<a href='/' className='brand-logo'>
+						School
 					</a>
 					<ul id='nav-mobile' className='right'>
 						<li>
