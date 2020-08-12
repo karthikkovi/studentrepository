@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
-const { Schema } = mongoose;
-// const markSchema = require('./Marks');
 
-const studentSchema = new Schema({
+const ProfileSchema = new mongoose.Schema({
+	user: {
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'user',
+	},
 	studentid: {
 		type: String,
 		required: true,
@@ -11,12 +13,18 @@ const studentSchema = new Schema({
 		type: String,
 		required: true,
 	},
-	sub1: String,
-	sub2: String,
-	sub3: String,
-	sub4: String,
-	_user: { type: Schema.Types.ObjectId, ref: 'User' },
-	dateCreated: Date,
+	sub1: {
+		type: String,
+	},
+	sub2: {
+		type: String,
+	},
+	sub3: {
+		type: String,
+	},
+	sub4: {
+		type: String,
+	},
 });
 
-mongoose.model('students', studentSchema);
+module.exports = Student = mongoose.model('student', ProfileSchema);

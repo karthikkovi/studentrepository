@@ -4,18 +4,21 @@ const cookieSession = require('cookie-session');
 const passport = require('passport');
 const path = require('path');
 
+const PORT = process.env.PORT || 5000;
+const app = express();
+
 require('./models/User');
 require('./models/Students');
 require('./services/passport');
 
 const keys = require('./config/keys');
 
+app.use(express.json());
+
 mongoose.connect(keys.mongoURI, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 });
-
-const app = express();
 
 app.use(
 	cookieSession({
@@ -27,7 +30,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 require('./routes/authRoutes')(app);
-require('./routes/students')(app);
+// require('./routes/students')(app);
+
+app.use('/api/students', require('./routes/students'));
 
 if (process.env.NODE_ENV === 'production') {
 	app.use(express.static('client/build'));
@@ -37,5 +42,4 @@ if (process.env.NODE_ENV === 'production') {
 	});
 }
 
-const PORT = process.env.PORT || 5000;
 app.listen(PORT);

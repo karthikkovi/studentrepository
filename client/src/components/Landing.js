@@ -2,7 +2,7 @@ import React from 'react';
 
 const Landing = () => {
 	return (
-		<div style={{ textAlign: 'center' }}>
+		<div className='landing' style={{ textAlign: 'center' }}>
 			<h1>My Institution</h1>
 			Login to manage your students data
 		</div>
