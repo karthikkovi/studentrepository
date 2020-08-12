@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { reduxForm } from 'redux-form';
 import StudentForm from './StudentForm';
 import StudentFormReview from './StudentFormReview';
 
@@ -29,4 +30,6 @@ class StudentNew extends Component {
 	}
 }
 
-export default StudentNew;
+export default reduxForm({
+	form: 'studentForm',
+})(StudentNew);

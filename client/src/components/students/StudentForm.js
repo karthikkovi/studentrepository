@@ -29,7 +29,7 @@ class StudentForm extends Component {
 					{this.renderFields()}
 					<Link
 						to='/students'
-						className='red darken-1 btn-flat white'>
+						className='red darken-1 btn-flat white-text'>
 						Cancel
 					</Link>
 					<button
