@@ -5,6 +5,7 @@ const passport = require('passport');
 const path = require('path');
 
 require('./models/User');
+require('./models/Students');
 require('./services/passport');
 
 const keys = require('./config/keys');
@@ -26,6 +27,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 require('./routes/authRoutes')(app);
+require('./routes/students')(app);
 
 if (process.env.NODE_ENV === 'production') {
 	app.use(express.static('client/build'));
