@@ -17,9 +17,6 @@ class Header extends Component {
 			default:
 				return [
 					<li key='1'>
-						<Link to='/'> New student </Link>
-					</li>,
-					<li key='2'>
 						<a href='/api/logout'>Logout</a>
 					</li>,
 				];
@@ -29,7 +26,7 @@ class Header extends Component {
 	render() {
 		return (
 			<nav>
-				<div className='nav-wrapper'>
+				<div className='col s10 nav-wrapper'>
 					<Link
 						to={this.props.auth ? '/students' : '/'}
 						className='left brand-logo'>

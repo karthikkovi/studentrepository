@@ -5,8 +5,8 @@ import * as actions from '../actions';
 
 import Header from './Header';
 import Landing from './Landing';
-import StudentNew from './NewStudent';
-const Dashboard = () => <h2>Dashboard</h2>;
+import StudentNew from './students/StudentNew';
+import Dashboard from './Dashboard';
 
 class App extends Component {
 	componentDidMount() {
@@ -14,16 +14,14 @@ class App extends Component {
 	}
 	render() {
 		return (
-			<div className='container'>
-				<BrowserRouter>
-					<div>
-						<Header />
-						<Route exact path='/' component={Landing} />
-						<Route exact path='/students' component={Dashboard} />
-						<Route path='/students/new' component={StudentNew} />
-					</div>
-				</BrowserRouter>
-			</div>
+			<BrowserRouter>
+				<div className='container'>
+					<Header />
+					<Route exact path='/' component={Landing} />
+					<Route exact path='/students' component={Dashboard} />
+					<Route path='/students/new' component={StudentNew} />
+				</div>
+			</BrowserRouter>
 		);
 	}
 }
